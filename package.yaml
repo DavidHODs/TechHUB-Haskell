@@ -31,6 +31,8 @@ dependencies:
 - text
 - servant
 - servant-server
+- wai
+- warp
 
 library:
   source-dirs: src
