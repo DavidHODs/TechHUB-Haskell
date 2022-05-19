@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "TechHUB-Haskell:lib"
+
+    - path: "./app/Main.hs"
+      component: "TechHUB-Haskell:exe:TechHUB-Haskell-exe"
+
+    - path: "./app/Paths_TechHUB_Haskell.hs"
+      component: "TechHUB-Haskell:exe:TechHUB-Haskell-exe"
+
+    - path: "./test"
+      component: "TechHUB-Haskell:test:TechHUB-Haskell-test"
