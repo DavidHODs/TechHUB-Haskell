@@ -39,6 +39,7 @@ library
       DataKinds
       TypeOperators
       FlexibleInstances
+      InstanceSigs
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -62,6 +63,7 @@ executable TechHUB-Haskell-exe
       DataKinds
       TypeOperators
       FlexibleInstances
+      InstanceSigs
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       TechHUB-Haskell
@@ -88,6 +90,7 @@ test-suite TechHUB-Haskell-test
       DataKinds
       TypeOperators
       FlexibleInstances
+      InstanceSigs
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       TechHUB-Haskell
