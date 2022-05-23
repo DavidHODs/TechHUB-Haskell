@@ -36,6 +36,7 @@ dependencies:
 - wai
 - warp
 - postgresql-simple
+- dotenv
 
 library:
   source-dirs: src
