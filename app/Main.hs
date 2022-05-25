@@ -6,12 +6,12 @@ import Configuration.Dotenv (loadFile, defaultConfig)
 
 import qualified API.EndPoint as EndPoint (app)
 
-import Init (localPG, envConnect, connect)
+import Init (localPG)
 
 main :: IO ()
 main = do
     loadFile defaultConfig
-    conn <- connect localPG :: IO Pg.Connection 
+    conn <- Pg.connect localPG :: IO Pg.Connection 
     -- conn <- envConnect "host"
     -- case conn of
     --     Left err -> print err
