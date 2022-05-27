@@ -1,4 +1,4 @@
-module Init(localPG, envConnect, useEnv) where
+module Init(localPG) where
 
 import qualified Database.PostgreSQL.Simple as Pg
 import GHC.Generics
@@ -8,17 +8,17 @@ import Configuration.Dotenv (loadFile, defaultConfig)
 localPG :: Pg.ConnectInfo
 localPG = Pg.defaultConnectInfo
     {
-        Pg.connectHost =  show $ envConnect "host" :: String,
-        Pg.connectDatabase = show $ envConnect "database" :: String,
-        Pg.connectUser =  show $ envConnect "pguser" :: String,
-        Pg.connectPassword = show $ envConnect "pgpassword"  :: String
+        Pg.connectHost =  useEnv "host" :: String,
+        Pg.connectDatabase = useEnv "database" :: String,
+        Pg.connectUser =  useEnv "pguser" :: String,
+        Pg.connectPassword = useEnv "pgpassword"  :: String
     } 
 
 envConnect :: String -> IO String
 envConnect = Env.getEnv
 
-useEnv :: String
-useEnv = show $ envConnect "databaseURL"
+useEnv :: String -> String
+useEnv param = show $ envConnect param
 
 instance Show (IO String) where
     show = show 

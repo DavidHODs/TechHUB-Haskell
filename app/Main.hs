@@ -8,7 +8,6 @@ import Data.Text
 import Prelude
 
 import qualified API.EndPoint as EndPoint (app)
-import Init (localPG, envConnect, useEnv)
 import Model.Secret (secret)
 
 main :: IO ()
