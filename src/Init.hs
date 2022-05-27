@@ -1,4 +1,4 @@
-module Init(localPG) where
+module Init(localPG, envConnect) where
 
 import qualified Database.PostgreSQL.Simple as Pg
 import GHC.Generics

@@ -10,16 +10,20 @@ import Data.Text
 import Prelude
 
 import qualified API.EndPoint as EndPoint (app)
-import Model.Secret (secret, migDir)
+import Init (envConnect)
 
 main :: IO ()
 main = do
     Dotenv.loadFile Dotenv.defaultConfig
-    -- secret is enclosed in a file ignored by git - it's a quack way to connect with postgres as I've not resolved working around the constraint of environment data returning IO String data type
-    conn <- Pg.connectPostgreSQL $ encodeUtf8 (pack secret) 
+    databaseURL <- envConnect "databaseURL"
+
+    conn <- Pg.connectPostgreSQL $ encodeUtf8 (pack databaseURL)
     initializationRes <- Mg.runMigration conn Mg.defaultOptions Mg.MigrationInitialization
     print initializationRes
+
+    migDir <- envConnect "migDir"
     migrationRes <- Mg.runMigration conn Mg.defaultOptions $ Mg.MigrationValidation (Mg.MigrationDirectory migDir)
     print migrationRes
+
     print "running on port 8080"
     run 8080 EndPoint.app
