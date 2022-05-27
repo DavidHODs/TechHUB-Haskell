@@ -37,7 +37,8 @@ dependencies:
 - warp
 - postgresql-simple
 - dotenv
-- bytestring
+- postgres-options
+- postgresql-migration
 
 library:
   source-dirs: src

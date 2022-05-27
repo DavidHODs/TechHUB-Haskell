@@ -44,8 +44,9 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
-    , bytestring
     , dotenv
+    , postgres-options
+    , postgresql-migration
     , postgresql-simple
     , servant
     , servant-server
@@ -72,8 +73,9 @@ executable TechHUB-Haskell-exe
       TechHUB-Haskell
     , aeson
     , base >=4.7 && <5
-    , bytestring
     , dotenv
+    , postgres-options
+    , postgresql-migration
     , postgresql-simple
     , servant
     , servant-server
@@ -101,8 +103,9 @@ test-suite TechHUB-Haskell-test
       TechHUB-Haskell
     , aeson
     , base >=4.7 && <5
-    , bytestring
     , dotenv
+    , postgres-options
+    , postgresql-migration
     , postgresql-simple
     , servant
     , servant-server
