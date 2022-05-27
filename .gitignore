@@ -2,3 +2,5 @@
 *~
 .vscode
 .env
+src/Model/Secret.hs
+src/Model/Secret

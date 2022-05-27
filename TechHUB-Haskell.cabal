@@ -29,6 +29,7 @@ library
       Controller.Logic
       Init
       Model.Data
+      Model.Secret
   other-modules:
       Paths_TechHUB_Haskell
   hs-source-dirs:
