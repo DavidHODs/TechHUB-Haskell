@@ -31,6 +31,7 @@ default-extensions:
 - DerivingStrategies
 - DerivingVia
 - DeriveAnyClass
+- TypeApplications
 
 dependencies:
 - base >= 4.7 && < 5
@@ -53,6 +54,8 @@ dependencies:
 - time
 - pg-entity
 - relude
+- mtl
+- resource-pool
 
 library:
   source-dirs: src
