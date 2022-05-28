@@ -26,6 +26,8 @@ default-extensions:
 - TypeOperators
 - FlexibleInstances
 - InstanceSigs
+- OverloadedLists
+- QuasiQuotes
 
 dependencies:
 - base >= 4.7 && < 5
@@ -40,6 +42,8 @@ dependencies:
 - postgres-options
 - postgresql-migration
 - pg-transact
+- postgresql-query
+- uuid
 
 library:
   source-dirs: src

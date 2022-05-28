@@ -4,6 +4,7 @@ module API.EndPoint
 
 import qualified Model.Data as Data (User(..), Response(..))
 import qualified Controller.Logic as Logic (registerUser)
+import Database.PostgreSQL.Transact (DBT)
 
 import qualified Data.Text as T
 import Data.Maybe
