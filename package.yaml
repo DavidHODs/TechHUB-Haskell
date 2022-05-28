@@ -39,6 +39,7 @@ dependencies:
 - dotenv
 - postgres-options
 - postgresql-migration
+- pg-transact
 
 library:
   source-dirs: src

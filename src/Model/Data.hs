@@ -4,13 +4,15 @@ module Model.Data
 
 import GHC.Generics
 import Data.Aeson
-import qualified Data.Text as T
+import Data.Text
 
 data User = User 
   {
     name :: String,
     email :: String,
-    password :: String
+    password :: String,
+    createdAt :: UTCTime,
+    updatedAt :: UTCTime
   } deriving(Generic, Show, Eq)
 instance ToJSON User
 instance FromJSON User
