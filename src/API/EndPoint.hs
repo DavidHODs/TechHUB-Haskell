@@ -1,4 +1,6 @@
-module API.EndPoint (app) where
+module API.EndPoint 
+  (app) 
+  where
 
 import qualified Model.Data as Data (User(..), Response(..))
 import qualified Controller.Logic as Logic (registerUser)
@@ -18,4 +20,3 @@ api = Proxy
 
 app :: Application
 app = serve api server
-

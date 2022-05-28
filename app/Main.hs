@@ -14,16 +14,16 @@ import Init (envConnect)
 
 main :: IO ()
 main = do
-    Dotenv.loadFile Dotenv.defaultConfig
-    databaseURL <- envConnect "databaseURL"
+  Dotenv.loadFile Dotenv.defaultConfig
+  databaseURL <- envConnect "databaseURL"
 
-    conn <- Pg.connectPostgreSQL $ encodeUtf8 (pack databaseURL)
-    initializationRes <- Mg.runMigration conn Mg.defaultOptions Mg.MigrationInitialization
-    print initializationRes
+  conn <- Pg.connectPostgreSQL $ encodeUtf8 (pack databaseURL)
+  initializationRes <- Mg.runMigration conn Mg.defaultOptions Mg.MigrationInitialization
+  print initializationRes
 
-    migDir <- envConnect "migDir"
-    migrationRes <- Mg.runMigration conn Mg.defaultOptions $ Mg.MigrationValidation (Mg.MigrationDirectory migDir)
-    print migrationRes
+  migDir <- envConnect "migDir"
+  migrationRes <- Mg.runMigration conn Mg.defaultOptions $ Mg.MigrationValidation (Mg.MigrationDirectory migDir)
+  print migrationRes
 
-    print "running on port 8080"
-    run 8080 EndPoint.app
+  print "running on port 8080"
+  run 8080 EndPoint.app
