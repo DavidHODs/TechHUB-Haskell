@@ -35,7 +35,11 @@ packages:
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:
 #
-# extra-deps:
+extra-deps:
+- pg-entity-0.0.1.0@sha256:a080352564474dd77929e0ca5acdf39fa993ce9ccee7273fa1bfe6c58b196e14,3753
+- colourista-0.1.0.1@sha256:98353ee0e2f5d97d2148513f084c1cd37dfda03e48aa9dd7a017c9d9c0ba710e,3307
+
+
 
 # - acme-missiles-0.3
 # - git: https://github.com/commercialhaskell/stack.git

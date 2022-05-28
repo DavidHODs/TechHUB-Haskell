@@ -5,8 +5,13 @@ module Model.Data
 import GHC.Generics
 import Data.Aeson
 import Data.Text
-import Data.Time
+import Data.Time (ZonedTime, zonedTimeToUTC)
+import Data.Default
+import Data.Ord
+import qualified Deriving.Aeson as DAE
 import qualified Data.UUID as UUID
+import qualified Relude.Unsafe as Unsafe
+
 import Database.PostgreSQL.Entity.Types
 import Database.PostgreSQL.Simple.FromField (FromField (..))
 import Database.PostgreSQL.Simple.FromRow (FromRow (..))
@@ -26,9 +31,17 @@ data User = User
   deriving anyclass (FromRow, ToRow)
   deriving 
     (Entity) 
-    via (GenericEntity '[Schema "tech", TableName "users", PrimaryKey "id", FieldModifiers '[CamelToSnake]] User)
+    via (GenericEntity '[TableName "users", PrimaryKey "id"] User)
 instance ToJSON User
 instance FromJSON User
+
+instance Default ZonedTime where
+  def = Unsafe.read "2019-08-31 05:14:37.537084021 UTC"
+
+instance Eq ZonedTime where
+  t1 == t2 = case comparing zonedTimeToUTC t1 t2 of
+    EQ -> True
+    _ -> False
 
 data Response = Response
   {

@@ -3,7 +3,21 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: pg-entity-0.0.1.0@sha256:a080352564474dd77929e0ca5acdf39fa993ce9ccee7273fa1bfe6c58b196e14,3753
+    pantry-tree:
+      size: 968
+      sha256: 6d6e40a333372ce034c336b32b4f661d6e9da4b98d162f413f4d5888720d83a4
+  original:
+    hackage: pg-entity-0.0.1.0@sha256:a080352564474dd77929e0ca5acdf39fa993ce9ccee7273fa1bfe6c58b196e14,3753
+- completed:
+    hackage: colourista-0.1.0.1@sha256:98353ee0e2f5d97d2148513f084c1cd37dfda03e48aa9dd7a017c9d9c0ba710e,3307
+    pantry-tree:
+      size: 571
+      sha256: aa027b21ac1ed1d446a4b20b9a1708fabed9042edf7a28ef05f3fc6278b07841
+  original:
+    hackage: colourista-0.1.0.1@sha256:98353ee0e2f5d97d2148513f084c1cd37dfda03e48aa9dd7a017c9d9c0ba710e,3307
 snapshots:
 - completed:
     size: 618884

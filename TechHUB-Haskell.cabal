@@ -28,6 +28,7 @@ library
       API.EndPoint
       Controller.Logic
       Init
+      Instances
       Model.Data
   other-modules:
       Paths_TechHUB_Haskell
@@ -42,18 +43,27 @@ library
       InstanceSigs
       OverloadedLists
       QuasiQuotes
+      DerivingStrategies
+      DerivingVia
+      DeriveAnyClass
   build-depends:
       aeson
     , base >=4.7 && <5
+    , data-default
+    , deriving-aeson
     , dotenv
+    , optics-th
+    , pg-entity
     , pg-transact
     , postgres-options
     , postgresql-migration
     , postgresql-query
     , postgresql-simple
+    , relude
     , servant
     , servant-server
     , text
+    , time
     , uuid
     , wai
     , warp
@@ -74,20 +84,29 @@ executable TechHUB-Haskell-exe
       InstanceSigs
       OverloadedLists
       QuasiQuotes
+      DerivingStrategies
+      DerivingVia
+      DeriveAnyClass
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       TechHUB-Haskell
     , aeson
     , base >=4.7 && <5
+    , data-default
+    , deriving-aeson
     , dotenv
+    , optics-th
+    , pg-entity
     , pg-transact
     , postgres-options
     , postgresql-migration
     , postgresql-query
     , postgresql-simple
+    , relude
     , servant
     , servant-server
     , text
+    , time
     , uuid
     , wai
     , warp
@@ -109,20 +128,29 @@ test-suite TechHUB-Haskell-test
       InstanceSigs
       OverloadedLists
       QuasiQuotes
+      DerivingStrategies
+      DerivingVia
+      DeriveAnyClass
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       TechHUB-Haskell
     , aeson
     , base >=4.7 && <5
+    , data-default
+    , deriving-aeson
     , dotenv
+    , optics-th
+    , pg-entity
     , pg-transact
     , postgres-options
     , postgresql-migration
     , postgresql-query
     , postgresql-simple
+    , relude
     , servant
     , servant-server
     , text
+    , time
     , uuid
     , wai
     , warp
