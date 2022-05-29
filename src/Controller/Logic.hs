@@ -23,8 +23,7 @@ data Config = Config
     pool :: Pool.Pool Internal.Connection
   }
 
--- instance MonadReader Config where 
---   ask id = id
+instance MonadReader
 
 reg :: Maybe Data.User -> IO (Data.Response)
 reg u = 
@@ -34,7 +33,7 @@ reg u =
       return $ Data.Response "required fields cannot be blank" 500 False
 
     Just u -> do
-      pool <- ask $ R.liftIO $ pool
+      pool <- asks pool
       _ <- R.liftIO $
         withPool pool $ do 
           _ <- insertUser u

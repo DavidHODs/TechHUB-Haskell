@@ -11,7 +11,7 @@ import Data.Maybe
 import Servant.API
 import Servant
 
-type API = "users" :> ReqBody '[JSON] (Maybe Data.User) :> Post '[JSON] Data.Response
+type API = "users" :> ReqBody '[JSON] (Maybe Data.User) :> Post '[JSON] IO Data.Response
 
 server :: Server API
 server = Logic.registerUser 
