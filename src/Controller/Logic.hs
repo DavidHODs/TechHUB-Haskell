@@ -18,14 +18,14 @@ import Database.PostgreSQL.Entity.DBT (withPool)
 
 import qualified Model.Data as Data (User(..), Response(..))
 
-data Config = Config 
+newtype Config = Config 
   {
     pool :: Pool.Pool Internal.Connection
   }
 
 instance MonadReader
 
-reg :: Maybe Data.User -> IO (Data.Response)
+reg :: Maybe Data.User -> IO Data.Response
 reg u = 
   case u of 
     Nothing -> do
