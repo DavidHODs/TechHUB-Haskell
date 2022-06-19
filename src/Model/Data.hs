@@ -50,3 +50,20 @@ data Response = Response
     success :: Bool 
   } deriving (Generic, Show)
 instance ToJSON Response
+
+
+data Post = Post 
+  {
+    id :: UUID.UUID,
+    author :: UUID.UUID,
+    body :: String,
+    tags :: UUID.UUID,
+    likes :: Integer,
+    dislikes :: Integer
+  } deriving stock (Generic, Show, Eq)
+  deriving anyclass (FromRow, ToRow)
+  deriving
+    (Entity)
+    via (GenericEntity '[TableName "tech.posts", PrimaryKey "id"] Post)
+instance ToJSON Post 
+instance FromJSON Post
