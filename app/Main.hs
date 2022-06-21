@@ -25,5 +25,5 @@ main = do
   migrationRes <- Mg.runMigration conn Mg.defaultOptions $ Mg.MigrationValidation (Mg.MigrationDirectory migDir)
   print migrationRes
 
-  print "running on port 8080"
-  run 8080 EndPoint.app
+  print "running on port 8000"
+  run 8000 EndPoint.app

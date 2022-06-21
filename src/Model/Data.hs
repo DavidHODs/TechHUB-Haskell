@@ -51,7 +51,6 @@ data Response = Response
   } deriving (Generic, Show)
 instance ToJSON Response
 
-
 data Post = Post 
   {
     id :: UUID.UUID,
