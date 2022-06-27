@@ -50,10 +50,11 @@ data Response = Response
     success :: Bool 
   } deriving (Generic, Show)
 instance ToJSON Response
+instance FromJSON Response
 
 data Post = Post 
   {
-    id :: UUID.UUID,
+    -- id :: UUID.UUID,
     author :: UUID.UUID,
     body :: String,
     tags :: UUID.UUID,

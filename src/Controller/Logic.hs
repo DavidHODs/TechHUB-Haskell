@@ -23,7 +23,7 @@ newtype Config = Config
     pool :: Pool.Pool Internal.Connection
   }
 
-instance MonadReader
+-- instance MonadReader
 
 reg :: Maybe Data.User -> IO Data.Response
 reg u = 
@@ -33,11 +33,11 @@ reg u =
       return $ Data.Response "required fields cannot be blank" 500 False
 
     Just u -> do
-      pool <- asks pool
-      _ <- R.liftIO $
-        withPool pool $ do 
-          _ <- insertUser u
-          R.pass
+      -- pool <- asks pool
+      -- _ <- R.liftIO $ do
+      --   withPool pool $ do 
+      --     _ <- insertUser u
+      --     R.pass
       print $ msg' ++ ", " ++ "200 Success"
       return $ Data.Response msg' code' success'
       
@@ -45,6 +45,7 @@ reg u =
         msg' = Data.name u ++ " , you succesfully registered. Your email is " ++ Data.email u ++ " and password " ++ Data.password u :: String
         code' = 201 :: Int
         success' = True :: Bool
+
 
 registerUser :: Maybe Data.User -> Handler (IO Data.Response)
 registerUser u = 
