@@ -33,11 +33,11 @@ reg u =
       return $ Data.Response "required fields cannot be blank" 500 False
 
     Just u -> do
-      -- pool <- asks pool
-      -- _ <- R.liftIO $ do
-      --   withPool pool $ do 
-      --     _ <- insertUser u
-      --     R.pass
+      pool <- asks pool
+      _ <- R.liftIO $ do
+        withPool pool $ do 
+          _ <- insertUser u
+          R.pass
       print $ msg' ++ ", " ++ "200 Success"
       return $ Data.Response msg' code' success'
       
